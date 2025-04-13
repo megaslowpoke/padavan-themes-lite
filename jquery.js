@@ -1442,33 +1442,33 @@ function addAriaWebControlLink() {
 // IXBT Community: https://forum.ixbt.com/topic.cgi?id=14:63903:l#l
 // Prometheus: https://4pda.to/forum/index.php?showtopic=714487&view=getnewpost
 // Copyright: https://prometheus.freize.net/distribution.html
-// function appendCopyright() {
-    // var subFooter = jQuery('<div id="subFooter"></div>');
-    // var copyright1 = jQuery('<div align="center" class="copyright"></div>');
-    // var copyright2 = jQuery('<div align="center" class="copyright"></div>');
-    // var copyright3 = jQuery('<div align="center" class="copyright"></div>');
-    
-    // var date = new Date();
-    // copyright1.append('<a href="https://bitbucket.org/padavan/rt-n56u" target="blank">© 2011-' + date.getFullYear() + ' Padavan &amp; N56U project community</a>');
-    // copyright2.append('<a href="https://4pda.to/forum/index.php?showtopic=686221&st=240&view=findpost&p=42644113" target="blank">Skins by Dave Medissn for 4PDA</a>');
-    // copyright3.append('<a href="https://prometheus.freize.net/distribution.html" target="blank">Compiled by Prometheus. Firmware distribution is prohibited</a>');
-    
-    // subFooter.append(copyright1, copyright3, copyright2);
-    // jQuery('#footer').after(subFooter);
+function appendCopyright() {
+    var subFooter = jQuery('<div id="subFooter"></div>');
+    var copyright1 = jQuery('<div align="center" class="copyright"></div>');
+    var copyright2 = jQuery('<div align="center" class="copyright"></div>');
+    var copyright3 = jQuery('<div align="center" class="copyright"></div>');
+
+    var date = new Date();
+    copyright1.append('Developed by © Andy Padavan &amp; Linaro &amp; Alxdm &amp; Mahtab &amp; <a href="https://gitlab.com/hadzhioglu/padavan-ng">Hadzhioglu');
+    copyright2.append('<a href="https://4pda.to/forum/index.php?showtopic=714487&view=getnewpost" target="blank">Compiled by Prometheus.</a> <a href="https://4pda.to/forum/index.php?showtopic=686221&st=2740#entry44407278" target="blank">Skins by Dave Medissn for 4PDA</a>');
+    copyright3.append('Firmware distribution is prohibited. Non-Commercial Use Only');
+
+    subFooter.append(copyright1, copyright2, copyright3);
+    jQuery('#footer').after(subFooter);
 
     // hide original copyright
     // var head = jQuery("head");
     // var selector = '#footer {display: none}';
     // head.append('<style id="hideCopyright" type="text/css">' + selector + '</style>');
-// }
+}
 
 // Download links:
-// Prometheus: https://prometheus.freize.net/index.html
+// Prometheus: https://gitlab.com/hadzhioglu/prometheus-update
 // Prometheus: https://4pda.to/forum/index.php?showtopic=714487&view=getnewpost
 function replaceAsusTo(name) {
     console.log('replaceAsusTo: ', name);
     replaceText('.alert.alert-info a:contains("ASUS RT-N56U")', "ASUS RT-N56U", name)
-        .attr('href', "https://prometheus.freize.net");
+        .attr('href', "https://gitlab.com/hadzhioglu/prometheus-update");
     replaceText('div#Senario span.label.label-info', "ASUS", name);
 }
 
@@ -1492,7 +1492,7 @@ jQuery(document).ready(function() {
     } else {
     	loadThisScriptInIframe();
         executeHacks();
-        // appendCopyright();
+        appendCopyright();
         replaceAsusTo(findRouterId());
         addYMDFix();
         addHighchartsFix();
